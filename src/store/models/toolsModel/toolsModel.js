@@ -38,6 +38,19 @@ export const toolsModel = {
         dispatch.toolsModel.requestFailure();
       }
     },
+    async addTool({ tool, tools }) {
+      try {
+        dispatch.toolsModel.request();
+        const res = await api.post(tool);
+        if (res.status !== 201) throw new Error(res);
+        const { data } = res;
+        dispatch.toolsModel.responseSuccess({
+          tools: [...tools, data],
+        });
+      } catch (error) {
+        dispatch.toolsModel.requestFailure();
+      }
+    },
     async deleteTool({ tools, id }) {
       try {
         dispatch.toolsModel.request();

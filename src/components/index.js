@@ -1,5 +1,5 @@
-export { default as SearchInput } from './SearchInput/SearchInput';
-export { default as ButtonBlock } from './ButtonBlock/ButtonBlock';
 export { default as ToolsList } from './ToolsList/ToolsList';
 export { default as EmptyTools } from './EmptyTools/EmptyTools';
-export { default as RemoveModal } from './Modals/RemoveModal';
+export { default as RemoveModal } from './Modals/RemoveModal/RemoveModal';
+export { default as AddModal } from './Modals/AddModal/AddModal';
+export { default as SearchBar } from './SearchBar/SearchBar';

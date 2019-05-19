@@ -2,12 +2,25 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
-import { SearchInput, ButtonBlock, ToolsList } from '../../components';
+import { ToolsList, SearchBar } from '../../components';
 
 class Tools extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+    };
+    this.hanldeOnAddTool = this.hanldeOnAddTool.bind(this);
+  }
+
   componentDidMount() {
     const { getTools } = this.props;
     getTools();
+  }
+
+  hanldeOnAddTool(tool) {
+    const { tools, addTool } = this.props;
+    addTool({ tool, tools });
   }
 
   render() {
@@ -16,12 +29,9 @@ class Tools extends PureComponent {
       <Container className="mt-5">
         <h1>VUTRR</h1>
         <h4 className="text-secondary">Very Useful Tools to Remember</h4>
-        <Row className="mt-5 mb-3">
-          <Col xs={8} lg={10}>
-            <SearchInput />
-          </Col>
-          <Col xs={4} lg={2} className="text-right">
-            <ButtonBlock />
+        <Row>
+          <Col xs={12}>
+            <SearchBar addTool={this.hanldeOnAddTool} />
           </Col>
         </Row>
         <Row>
@@ -37,6 +47,7 @@ class Tools extends PureComponent {
 Tools.propTypes = {
   getTools: PropTypes.func.isRequired,
   deleteTool: PropTypes.func.isRequired,
+  addTool: PropTypes.func.isRequired,
   tools: PropTypes.oneOfType([
     PropTypes.any,
     PropTypes.arrayOf(

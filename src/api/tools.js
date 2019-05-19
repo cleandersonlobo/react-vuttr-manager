@@ -16,7 +16,7 @@ export const ENDPOINTS = {
 
 export default {
   get: () => axiosInstance.get(ENDPOINTS.tools),
-  post: () => axiosInstance.post(ENDPOINTS.tools),
+  post: data => axiosInstance.post(ENDPOINTS.tools, data),
   search: search => axiosInstance.get(ENDPOINTS.search(search)),
   searchByTag: tag => axiosInstance.get(ENDPOINTS.searchByTag(tag)),
   delete: id => axiosInstance.delete(ENDPOINTS.toolsId(id)),

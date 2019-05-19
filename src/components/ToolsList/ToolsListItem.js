@@ -36,11 +36,12 @@ const ToolsListItem = ({ tool, onRemove }) => {
         </Row>
         <Row className="mt-2">
           <Col xs={12}>
-            {tags.map(tag => (
-              <span key={tag} className="d-inline-block font-weight-bold mr-2">
-                #{tag}
-              </span>
-            ))}
+            {tags &&
+              tags.map(tag => (
+                <span key={tag} className="d-inline-block font-weight-bold mr-2">
+                  #{tag}
+                </span>
+              ))}
           </Col>
         </Row>
       </CardBody>

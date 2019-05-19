@@ -9,7 +9,7 @@ const RemoveModal = ({ isOpen, toggle, onConfirm, tool }) => {
       <ModalHeader toggle={toggle}>Remove tool</ModalHeader>
       <ModalBody>
         Are you sure you want to remove
-        <span className="font-weight-bold"> {tool.title}</span>
+        <span className="font-weight-bold"> {tool.title}</span>?
       </ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={toggle}>
