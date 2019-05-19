@@ -19,7 +19,7 @@ const SearchInput = ({ onSearch }) => {
 
   return (
     <FormGroup row className="align-items-center">
-      <Col xs={12} md={6}>
+      <Col xs={12} md={6} lg={4}>
         <span className="has-search">
           <Icon path={mdiMagnify} size={0.9} color="#aaa" />
         </span>
@@ -31,7 +31,7 @@ const SearchInput = ({ onSearch }) => {
           onChange={handleOnChangeInput}
         />
       </Col>
-      <Col xs={12} md={6} className="mt-2 mt-md-0">
+      <Col xs={12} md={6} lg={8} className="mt-2 mt-md-0">
         <FormGroup check>
           <Label check>
             <Input type="checkbox" checked={onlyTags} onChange={handleOnChangeCheck} />
