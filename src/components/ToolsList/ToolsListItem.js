@@ -37,7 +37,9 @@ const ToolsListItem = ({ tool, onRemove }) => {
         <Row className="mt-2">
           <Col xs={12}>
             {tags.map(tag => (
-              <span className="d-inline-block font-weight-bold mr-2">#{tag}</span>
+              <span key={tag} className="d-inline-block font-weight-bold mr-2">
+                #{tag}
+              </span>
             ))}
           </Col>
         </Row>
