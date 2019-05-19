@@ -3,7 +3,7 @@ import Icon from '@mdi/react';
 import { mdiPlus } from '@mdi/js';
 import { Button } from 'reactstrap';
 
-const AddButton = buttonProps => {
+const ButtonBlock = buttonProps => {
   return (
     <Button
       color="primary"
@@ -17,4 +17,4 @@ const AddButton = buttonProps => {
   );
 };
 
-export default AddButton;
+export default ButtonBlock;
