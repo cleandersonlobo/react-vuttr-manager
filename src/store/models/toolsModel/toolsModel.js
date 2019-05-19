@@ -51,6 +51,32 @@ export const toolsModel = {
         dispatch.toolsModel.requestFailure();
       }
     },
+    async search(input) {
+      try {
+        dispatch.toolsModel.request();
+        const res = await api.search(input);
+        if (res.status !== 200) throw new Error(res);
+        const { data } = res;
+        dispatch.toolsModel.responseSuccess({
+          tools: data,
+        });
+      } catch (error) {
+        dispatch.toolsModel.requestFailure();
+      }
+    },
+    async searchByTag(tag) {
+      try {
+        dispatch.toolsModel.request();
+        const res = await api.searchByTag(tag);
+        if (res.status !== 200) throw new Error(res);
+        const { data } = res;
+        dispatch.toolsModel.responseSuccess({
+          tools: data,
+        });
+      } catch (error) {
+        dispatch.toolsModel.requestFailure();
+      }
+    },
     async deleteTool({ tools, id }) {
       try {
         dispatch.toolsModel.request();

@@ -11,6 +11,7 @@ class Tools extends PureComponent {
       isOpen: false,
     };
     this.hanldeOnAddTool = this.hanldeOnAddTool.bind(this);
+    this.hanldeOnSearch = this.hanldeOnSearch.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +24,12 @@ class Tools extends PureComponent {
     addTool({ tool, tools });
   }
 
+  hanldeOnSearch({ value, onlyTags }) {
+    const { search, searchByTag } = this.props;
+    if (onlyTags) searchByTag(value);
+    else search(value);
+  }
+
   render() {
     const { tools, deleteTool } = this.props;
     return (
@@ -31,7 +38,7 @@ class Tools extends PureComponent {
         <h4 className="text-secondary">Very Useful Tools to Remember</h4>
         <Row>
           <Col xs={12}>
-            <SearchBar addTool={this.hanldeOnAddTool} />
+            <SearchBar addTool={this.hanldeOnAddTool} onSearch={this.hanldeOnSearch} />
           </Col>
         </Row>
         <Row>
@@ -48,6 +55,8 @@ Tools.propTypes = {
   getTools: PropTypes.func.isRequired,
   deleteTool: PropTypes.func.isRequired,
   addTool: PropTypes.func.isRequired,
+  search: PropTypes.func.isRequired,
+  searchByTag: PropTypes.func.isRequired,
   tools: PropTypes.oneOfType([
     PropTypes.any,
     PropTypes.arrayOf(

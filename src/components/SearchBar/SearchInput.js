@@ -14,7 +14,7 @@ const SearchInput = ({ onSearch }) => {
   function handleOnChangeInput(event) {
     const { value } = event.currentTarget;
     setSearch(value);
-    onSearch({ search, onlyTags });
+    onSearch({ value, onlyTags });
   }
 
   return (

@@ -29,7 +29,7 @@ const ToolsList = props => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <RemoveModal
         isOpen={isOpenModal}
         toggle={handleOnToggleModal}
@@ -39,7 +39,7 @@ const ToolsList = props => {
       {tools.map(item => (
         <ToolsListItem key={item.id} tool={item} onRemove={hanldeOnClickRemove} />
       ))}
-    </React.Fragment>
+    </>
   );
 };
 

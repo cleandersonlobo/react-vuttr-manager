@@ -5,7 +5,7 @@ import SearchInput from './SearchInput';
 import ButtonAdd from './ButtonAdd';
 import { AddModal } from '..';
 
-const SearchBar = ({ addTool }) => {
+const SearchBar = ({ addTool, onSearch }) => {
   const [isOpenModal, setTooleModal] = useState(false);
 
   function handleOnToggleModal() {
@@ -13,22 +13,23 @@ const SearchBar = ({ addTool }) => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <AddModal isOpen={isOpenModal} toggle={handleOnToggleModal} addTool={addTool} />
       <Row className="mt-5 mb-3">
         <Col xs={8} lg={10}>
-          <SearchInput />
+          <SearchInput onSearch={onSearch} />
         </Col>
         <Col xs={4} lg={2} className="text-right">
           <ButtonAdd onClick={handleOnToggleModal} />
         </Col>
       </Row>
-    </React.Fragment>
+    </>
   );
 };
 
 SearchBar.propTypes = {
   addTool: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
