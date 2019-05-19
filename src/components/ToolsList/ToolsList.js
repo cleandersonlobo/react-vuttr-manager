@@ -1,25 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { EmptyTools } from '..';
 import ToolsListItem from './ToolsListItem';
 
-class ToolsList extends Component {
-  render() {
-    const { tools } = this.props;
+const ToolsList = props => {
+  const { tools } = props;
 
-    if (!tools) return null;
+  if (!tools) return null;
 
-    if (tools && !tools.length) return <EmptyTools />;
+  if (tools && !tools.length) return <EmptyTools />;
 
-    return (
-      <React.Fragment>
-        {tools.map(tool => (
-          <ToolsListItem key={tool.id} tool={tool} />
-        ))}
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <React.Fragment>
+      {tools.map(tool => (
+        <ToolsListItem key={tool.id} tool={tool} />
+      ))}
+    </React.Fragment>
+  );
+};
 
 ToolsList.propTypes = {
   tools: PropTypes.oneOfType([
