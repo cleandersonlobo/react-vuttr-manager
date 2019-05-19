@@ -7,7 +7,7 @@ import { Card, CardBody, Row, Col, Button } from 'reactstrap';
 const ToolsListItem = ({ tool, onRemove }) => {
   const { id, title, link, description, tags } = tool;
   function handleOnRemove() {
-    onRemove(id);
+    onRemove(tool);
   }
   return (
     <Card key={id} className="mb-4 rounded-0">

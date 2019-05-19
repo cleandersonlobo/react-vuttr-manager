@@ -11,7 +11,7 @@ class Tools extends PureComponent {
   }
 
   render() {
-    const { tools } = this.props;
+    const { tools, deleteTool } = this.props;
     return (
       <Container className="mt-5">
         <h1>VUTRR</h1>
@@ -26,7 +26,7 @@ class Tools extends PureComponent {
         </Row>
         <Row>
           <Col xs={12}>
-            <ToolsList tools={tools} />
+            <ToolsList tools={tools} deleteTool={deleteTool} />
           </Col>
         </Row>
       </Container>
@@ -36,6 +36,7 @@ class Tools extends PureComponent {
 
 Tools.propTypes = {
   getTools: PropTypes.func.isRequired,
+  deleteTool: PropTypes.func.isRequired,
   tools: PropTypes.oneOfType([
     PropTypes.any,
     PropTypes.arrayOf(

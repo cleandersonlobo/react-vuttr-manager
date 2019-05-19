@@ -38,5 +38,18 @@ export const toolsModel = {
         dispatch.toolsModel.requestFailure();
       }
     },
+    async deleteTool({ tools, id }) {
+      try {
+        dispatch.toolsModel.request();
+        const res = await api.delete(id);
+        if (res.status !== 200) throw new Error(res);
+        const toolsFilter = tools.filter(it => it.id !== id);
+        dispatch.toolsModel.responseSuccess({
+          tools: toolsFilter,
+        });
+      } catch (error) {
+        dispatch.toolsModel.requestFailure();
+      }
+    },
   }),
 };
