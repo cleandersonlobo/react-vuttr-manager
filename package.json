@@ -6,7 +6,7 @@
     "@mdi/js": "3.6.95",
     "@mdi/react": "1.1.1",
     "@rematch/core": "1.1.0",
-    "axios": "0.18.0",
+    "axios": "0.18.1",
     "bootstrap": "4.3.1",
     "classnames": "2.2.6",
     "formik": "1.5.7",
